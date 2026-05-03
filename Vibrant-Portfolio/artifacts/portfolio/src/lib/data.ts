@@ -9,8 +9,8 @@ export const PORTFOLIO_DATA = {
   contact: {
     email: "ramanpreetkaurr04@gmail.com",
     phone: "+91-9311854466",
-    github: "https://github.com/ramanpreet-kaur",
-    linkedin: "https://linkedin.com/in/ramanpreet-kaur",
+    github: "https://github.com/ramanpreett",
+    linkedin: "www.linkedin.com/in/ramanpreet-kaur-b9202b220",
   },
   skills: [
     {
