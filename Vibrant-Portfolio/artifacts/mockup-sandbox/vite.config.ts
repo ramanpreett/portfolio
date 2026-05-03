@@ -6,15 +6,10 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
 const rawPort = process.env.PORT || 3000;
-
-// ❌ REMOVE THIS BLOCK (it breaks Vercel build)
-// if (Number.isNaN(port) || port <= 0) {
-//   throw new Error(`Invalid PORT value: "${rawPort}"`);
-// }
-
 const port = Number(rawPort);
 
-const basePath = process.env.BASE_PATH || "/";
+// ✅ FIXED BASE PATH FOR GITHUB PAGES
+const basePath = "/portfolio/";
 
 export default defineConfig({
   base: basePath,
