@@ -3,18 +3,18 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 const galleryItems = [
-  "/1000049369.jpg",
-  "/1000049766.jpg",
-  "/1000059145.jpg",
-  "/1000073135.jpg",
-  "/1000073228.jpg",
-  "/1000073739.jpg",
-  "/1000073740.jpg",
-  "/1000073741.jpg",
-  "/1000177730.jpg",
-  "/1000177731.jpg",
-  "/1000177735.jpg",
-  "/1000177738.jpg",
+  `${import.meta.env.BASE_URL}1000049369.jpg`,
+  `${import.meta.env.BASE_URL}1000049766.jpg`,
+  `${import.meta.env.BASE_URL}1000059145.jpg`,
+  `${import.meta.env.BASE_URL}1000073135.jpg`,
+  `${import.meta.env.BASE_URL}1000073228.jpg`,
+  `${import.meta.env.BASE_URL}1000073739.jpg`,
+  `${import.meta.env.BASE_URL}1000073740.jpg`,
+  `${import.meta.env.BASE_URL}1000073741.jpg`,
+  `${import.meta.env.BASE_URL}1000177730.jpg`,
+  `${import.meta.env.BASE_URL}1000177731.jpg`,
+  `${import.meta.env.BASE_URL}1000177735.jpg`,
+  `${import.meta.env.BASE_URL}1000177738.jpg`,
 ];
 
 const vibrantBorders = [
