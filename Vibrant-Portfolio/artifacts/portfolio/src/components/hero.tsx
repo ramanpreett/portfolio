@@ -170,7 +170,7 @@ export function Hero() {
               >
                 {!imageError ? (
                   <img
-                    src="/hero.jpg"
+                    src="/portfolio/hero.jpg"
                     alt="Ramanpreet Kaur"
                     className="w-full h-full object-cover"
                     onError={() => setImageError(true)}
