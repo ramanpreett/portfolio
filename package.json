@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "vibrant-portfolio-root",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8",
+  "scripts": {
+    "preinstall": "pnpm install --prefix Vibrant-Portfolio",
+    "build": "pnpm --prefix Vibrant-Portfolio run build",
+    "start": "pnpm --prefix Vibrant-Portfolio run start"
+  }
+}
