@@ -14,7 +14,7 @@ const basePath = "/portfolio/";
 export default defineConfig({
   base: basePath,
   plugins: [
-    mockupPreviewPlugin(),
+    
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
