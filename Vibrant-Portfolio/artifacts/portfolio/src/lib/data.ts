@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, ExternalLink, Github, Linkedin, ChevronRight, Code2, Database, LayoutTemplate } from "lucide-react";
-import { SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiFirebase, SiHtml5, SiPython, SiFigma, SiGit, SiGithub, SiWordpress } from "react-icons/si";
+import { SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiFirebase, SiHtml5, SiPython, SiFigma, SiGit, SiGithub, SiWordpress, SiDotnet } from "react-icons/si";
 
 export const PORTFOLIO_DATA = {
   name: "Ramanpreet Kaur",
@@ -10,7 +10,7 @@ export const PORTFOLIO_DATA = {
     email: "ramanpreetkaurr04@gmail.com",
     phone: "+91-9311854466",
     github: "https://github.com/ramanpreett",
-    linkedin: "www.linkedin.com/in/ramanpreet-kaur-b9202b220",
+    linkedin: "https://www.linkedin.com/in/ramanpreet-kaur-b9202b220",
   },
   skills: [
     {
@@ -20,6 +20,7 @@ export const PORTFOLIO_DATA = {
       bg: "bg-blue-500/10",
       items: [
         { name: "Java", icon: Code2 },
+        { name: ".NET", icon: SiDotnet },
         { name: "JavaScript", icon: SiJavascript },
         { name: "HTML", icon: SiHtml5 },
         { name: "CSS", icon: SiHtml5 },
