@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Code2, BookOpen, Music, Plane, Camera, Palette } from "lucide-react";
+import { useState } from "react";
+import { Code2, BookOpen, Music, Plane, Camera, Palette, X } from "lucide-react";
 
 const hobbies = [
   {
@@ -10,6 +11,11 @@ const hobbies = [
     bg: "bg-violet-500/10",
     border: "border-violet-500/20",
     text: "text-violet-600",
+    images: [
+      "https://images.unsplash.com/photo-1542744095-291d1f67b221?w=1200&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+    ],
   },
   {
     icon: Palette,
@@ -19,6 +25,11 @@ const hobbies = [
     bg: "bg-blue-500/10",
     border: "border-blue-500/20",
     text: "text-blue-600",
+    images: [
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1200&q=80",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
+    ],
   },
   {
     icon: BookOpen,
@@ -28,6 +39,10 @@ const hobbies = [
     bg: "bg-emerald-500/10",
     border: "border-emerald-500/20",
     text: "text-emerald-600",
+    images: [
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80",
+    ],
   },
   {
     icon: Music,
@@ -37,6 +52,10 @@ const hobbies = [
     bg: "bg-orange-500/10",
     border: "border-orange-500/20",
     text: "text-orange-600",
+    images: [
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1517260914-2e9f8a2b6f33?w=1200&q=80",
+    ],
   },
   {
     icon: Plane,
@@ -46,6 +65,11 @@ const hobbies = [
     bg: "bg-rose-500/10",
     border: "border-rose-500/20",
     text: "text-rose-600",
+    images: [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80",
+      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200&q=80",
+    ],
   },
   {
     icon: Camera,
@@ -55,6 +79,11 @@ const hobbies = [
     bg: "bg-indigo-500/10",
     border: "border-indigo-500/20",
     text: "text-indigo-600",
+    images: [
+      "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1200&q=80",
+      "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=1200&q=80",
+      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&q=80",
+    ],
   },
 ];
 
@@ -71,6 +100,22 @@ const item = {
 };
 
 export function Hobbies() {
+  const [open, setOpen] = useState(false);
+  const [currentImages, setCurrentImages] = useState<string[]>([]);
+  const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  function openGallery(images: string[]) {
+    setCurrentImages(images);
+    setActiveImage(images[0] ?? null);
+    setOpen(true);
+  }
+
+  function closeGallery() {
+    setOpen(false);
+    setCurrentImages([]);
+    setActiveImage(null);
+  }
+
   return (
     <section id="hobbies" className="py-24">
       <div className="container mx-auto px-6">
@@ -106,7 +151,8 @@ export function Hobbies() {
                 key={hobby.title}
                 variants={item}
                 data-testid={`hobby-card-${hobby.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className={`group relative p-6 rounded-2xl bg-card border ${hobby.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                className={`group relative p-6 rounded-2xl bg-card border ${hobby.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-pointer`}
+                onClick={() => hobby.images && openGallery(hobby.images)}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${hobby.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`} />
                 <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${hobby.bg} ${hobby.text} mb-4`}>
@@ -118,6 +164,52 @@ export function Hobbies() {
             );
           })}
         </motion.div>
+        {/* Gallery Modal */}
+        {open && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/60" onClick={closeGallery} />
+            <div className="relative z-10 max-w-5xl w-full mx-4">
+              <div className="bg-card rounded-lg p-4 md:p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-semibold">Gallery</h3>
+                  <button
+                    className="p-2 rounded hover:bg-muted"
+                    aria-label="Close gallery"
+                    onClick={closeGallery}
+                  >
+                    <X />
+                  </button>
+                </div>
+                <div className="flex flex-col items-center">
+                  {activeImage && (
+                    <motion.img
+                      key={activeImage}
+                      src={activeImage}
+                      alt="Selected"
+                      className="max-h-[70vh] w-full object-contain rounded"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                  <div className="mt-4 w-full overflow-x-auto">
+                    <div className="flex gap-3">
+                      {currentImages.map((src) => (
+                        <button
+                          key={src}
+                          onClick={() => setActiveImage(src)}
+                          className={`rounded overflow-hidden border ${activeImage === src ? "border-foreground" : "border-transparent"}`}
+                        >
+                          <img src={src} alt="thumb" className="h-20 w-32 object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
