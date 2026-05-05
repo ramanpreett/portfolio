@@ -85,13 +85,33 @@ export const PORTFOLIO_DATA = {
       degree: "MCA",
       institution: "Amity University Haryana",
       period: "July 2024 – June 2026",
-      status: "Current"
+      status: "Current",
+      grade: "CGPA 8.19",
+      board: null as string | null,
     },
     {
       degree: "BCA",
       institution: "Amity University Online",
       period: "July 2021 – June 2024",
-      status: "Completed"
-    }
+      status: "Completed",
+      grade: "CGPA 7.60",
+      board: null as string | null,
+    },
+    {
+      degree: "Class 12th",
+      institution: "Poorna Prajna Public School",
+      period: "2020 – 2021",
+      status: "Completed",
+      grade: "87%",
+      board: "CBSE",
+    },
+    {
+      degree: "Class 10th",
+      institution: "Poorna Prajna Public School",
+      period: "2018 – 2019",
+      status: "Completed",
+      grade: "92%",
+      board: "CBSE",
+    },
   ]
 };

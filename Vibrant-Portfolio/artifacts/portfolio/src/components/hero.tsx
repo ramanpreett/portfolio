@@ -325,7 +325,8 @@ export function Hero() {
                     src={`${import.meta.env.BASE_URL}hero.jpg`}
                     alt="Ramanpreet Kaur"
                     className="w-full h-full object-cover"
-                    // onError={() => setImageError(true)}
+                    style={{ objectPosition: "center 20%" }}
+                    onError={() => setImageError(true)}
                   />
                 ) : (
                   <div className="flex flex-col items-center gap-2 text-primary/60 select-none">
